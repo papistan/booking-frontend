@@ -116,7 +116,7 @@ class TruckForm extends Component {
               </select>
               <br />
               <br />
-              <input type="submit" value="Submit" />
+              <input type="submit" value="Create Truck" />
             </form>
           </div>
         </div>
