@@ -19,8 +19,12 @@ const timeOptions = {
 
 const divStyle = {
   marginLeft: '2%',
-  maxWidth: '30%',
-  border: '5px solid black'
+  maxWidth: '40%',
+  minWidth: '20%',
+  border: '5px solid black',
+  marginBottom: '2%',
+  textAlign: 'center',
+  paddingBottom: '2%'
 };
 
 class JobForm extends Component {

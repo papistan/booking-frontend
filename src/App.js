@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import JobForm from './components/jobForm';
 import TruckForm from './components/truckForm';
+import JobList from './components/jobList';
 import './App.css';
 
 class App extends Component {
@@ -10,6 +10,7 @@ class App extends Component {
       <div className="App">
         <TruckForm />
         <JobForm />
+        <JobList />
       </div>
     );
   }
