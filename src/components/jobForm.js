@@ -1,26 +1,13 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import { timeOptions } from '../utils/helpers';
 import axios from 'axios';
-
-const timeOptions = {
-  '7am': 7,
-  '8am': 8,
-  '9am': 9,
-  '10am': 10,
-  '11am': 11,
-  '12pm': 12,
-  '1pm': 13,
-  '2pm': 14,
-  '3pm': 15,
-  '4pm': 16,
-  '5pm': 17,
-  '6pm': 18,
-  '7pm': 19
-};
 
 const divStyle = {
   marginLeft: '2%',
-  maxWidth: '40%',
-  minWidth: '20%',
+  marginTop: '2%',
+  width: '30%',
+  minHeight: '30%',
   border: '5px solid black',
   marginBottom: '2%',
   textAlign: 'center',
@@ -32,7 +19,8 @@ class JobForm extends Component {
     super();
 
     this.state = {
-      formFields: { name: '', date: '', startTime: 7, totalHours: '' }
+      formFields: { name: '', date: '', startTime: 7, totalHours: '' },
+      redirect: false
     };
 
     this.formHandler = this.formHandler.bind(this);
@@ -75,15 +63,17 @@ class JobForm extends Component {
         'https://fathomless-mountain-28837.herokuapp.com/api/jobCreate',
         this.state.formFields
       )
-      .then(function(response) {
-        console.log(response);
-      })
+      .then(() => this.setState({ redirect: true }))
       .catch(function(error) {
         console.log(error);
       });
   }
 
   render() {
+    const { redirect } = this.state;
+    if (redirect) {
+      return <Redirect to="/truckList" />;
+    }
     return (
       <div>
         <div style={divStyle}>

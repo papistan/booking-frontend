@@ -1,31 +1,18 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import { timeOptions } from '../utils/helpers';
 import axios from 'axios';
 
-const timeOptions = {
-  '7am': 7,
-  '8am': 8,
-  '9am': 9,
-  '10am': 10,
-  '11am': 11,
-  '12pm': 12,
-  '1pm': 13,
-  '2pm': 14,
-  '3pm': 15,
-  '4pm': 16,
-  '5pm': 17,
-  '6pm': 18,
-  '7pm': 19,
-  '8pm': 20
-};
-
 const divStyle = {
-  marginLeft: '2%',
-  maxWidth: '40%',
-  minWidth: '20%',
+  marginRight: '2%',
+
+  minWidth: '30%',
+  minHeight: '50%',
   border: '5px solid black',
   marginBottom: '2%',
   textAlign: 'center',
-  paddingBottom: '2%'
+  paddingBottom: '10%',
+  float: 'right'
 };
 
 class TruckForm extends Component {
@@ -33,58 +20,38 @@ class TruckForm extends Component {
     super();
 
     this.state = {
-      formFields: { name: '', startTime: 7, endTime: 20 }
+      formFields: { name: '', startTime: 7, endTime: 20 },
+      redirect: false
     };
-
-    this.formHandler = this.formHandler.bind(this);
-    this.inputChangeHandler = this.inputChangeHandler.bind(this);
-    this.handleStarttimeSelectChange = this.handleStarttimeSelectChange.bind(
-      this
-    );
-    this.handleEndtimeSelectChange = this.handleEndtimeSelectChange.bind(this);
   }
 
-  inputChangeHandler(e) {
+  inputChangeHandler = e => {
     let formFields = { ...this.state.formFields };
     formFields[e.target.name] = e.target.value;
     console.log(formFields);
     this.setState({
       formFields
     });
-  }
+  };
 
-  handleStarttimeSelectChange(e) {
-    let formFields = { ...this.state.formFields };
-    formFields.startTime = e.target.value;
-    this.setState({
-      formFields
-    });
-  }
-
-  handleEndtimeSelectChange(e) {
-    let formFields = { ...this.state.formFields };
-    formFields.endTime = e.target.value;
-    this.setState({
-      formFields
-    });
-  }
-
-  formHandler(e) {
+  formHandler = e => {
     e.preventDefault();
     axios
       .post(
         'https://fathomless-mountain-28837.herokuapp.com/api/truckCreate',
         this.state.formFields
       )
-      .then(function(response) {
-        console.log(response);
-      })
+      .then(() => this.setState({ redirect: true }))
       .catch(function(error) {
         console.log(error);
       });
-  }
+  };
 
   render() {
+    const { redirect } = this.state;
+    if (redirect) {
+      return <Redirect to="/truckList" />;
+    }
     return (
       <div>
         <div style={divStyle}>
@@ -103,7 +70,7 @@ class TruckForm extends Component {
               />{' '}
               <br />
               <p>Start Time (hour)</p>
-              <select onChange={this.handleStarttimeSelectChange}>
+              <select onChange={this.inputChangeHandler} name="startTime">
                 {Object.keys(timeOptions).map(time => (
                   <option key={timeOptions[time]} value={timeOptions[time]}>
                     {time}
@@ -111,7 +78,7 @@ class TruckForm extends Component {
                 ))};
               </select>
               <p>End Time (hour)</p>
-              <select onChange={this.handleEndtimeSelectChange}>
+              <select onChange={this.inputChangeHandler} name="endTime">
                 {Object.keys(timeOptions).map(time => (
                   <option key={timeOptions[time]} value={timeOptions[time]}>
                     {time}
