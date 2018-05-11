@@ -3,7 +3,7 @@ A simple frontend to create new moving trucks, create bookings and manage schedu
 
 ## Requirements
 
-For development, you will need [Node.js](http://nodejs.org/) and [Yarn](https://yarnpkg.com/en/)installed on your environement.
+For development, you will need [Node.js](http://nodejs.org/) and [Yarn](https://yarnpkg.com/en/) installed on your environement.
 
 ## Install
 
