@@ -12,6 +12,9 @@ class App extends Component {
           <Link to="/">
             <button>Back to Forms</button>
           </Link>
+          <Link to="/truckList">
+            <button>Truck/Jobs List</button>
+          </Link>
           <Switch>
             <Route path="/truckList" component={TruckList} />
             <Route path="/" component={Forms} />

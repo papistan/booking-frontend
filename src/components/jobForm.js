@@ -3,80 +3,54 @@ import { Redirect } from 'react-router-dom';
 import { timeOptions } from '../utils/helpers';
 import axios from 'axios';
 
-const divStyle = {
-  marginLeft: '2%',
-  marginTop: '2%',
-  width: '30%',
-  minHeight: '30%',
-  border: '5px solid black',
-  marginBottom: '2%',
-  textAlign: 'center',
-  paddingBottom: '2%'
-};
-
 class JobForm extends Component {
   constructor() {
     super();
 
     this.state = {
       formFields: { name: '', date: '', startTime: 7, totalHours: '' },
-      redirect: false
+      redirect: false,
+      error: ''
     };
-
-    this.formHandler = this.formHandler.bind(this);
-    this.inputChangeHandler = this.inputChangeHandler.bind(this);
-    this.handleStarttimeSelectChange = this.handleStarttimeSelectChange.bind(
-      this
-    );
-    this.handleEndtimeSelectChange = this.handleEndtimeSelectChange.bind(this);
   }
 
-  inputChangeHandler(e) {
+  inputChangeHandler = e => {
     let formFields = { ...this.state.formFields };
     formFields[e.target.name] = e.target.value;
     console.log(formFields);
     this.setState({
       formFields
     });
-  }
+  };
 
-  handleStarttimeSelectChange(e) {
-    let formFields = { ...this.state.formFields };
-    formFields.startTime = e.target.value;
-    this.setState({
-      formFields
-    });
-  }
-
-  handleEndtimeSelectChange(e) {
-    let formFields = { ...this.state.formFields };
-    formFields.endTime = e.target.value;
-    this.setState({
-      formFields
-    });
-  }
-
-  formHandler(e) {
+  formHandler = e => {
     e.preventDefault();
     axios
       .post(
         'https://fathomless-mountain-28837.herokuapp.com/api/jobCreate',
         this.state.formFields
       )
-      .then(() => this.setState({ redirect: true }))
+      .then(res => {
+        if (res.data.errors) {
+          this.setState({ error: 'All booked up then. Try another time' });
+        } else {
+          this.setState({ redirect: true });
+        }
+      })
       .catch(function(error) {
         console.log(error);
       });
-  }
+  };
 
   render() {
-    const { redirect } = this.state;
+    const { redirect, error } = this.state;
     if (redirect) {
       return <Redirect to="/truckList" />;
     }
     return (
       <div>
         <div style={divStyle}>
+          <p style={errorStyle}>{error}</p>
           <div>
             <h5>Create Job</h5>
           </div>
@@ -101,7 +75,7 @@ class JobForm extends Component {
               />{' '}
               <br />
               <p>Start Time (hour)</p>
-              <select onChange={this.handleStarttimeSelectChange}>
+              <select onChange={this.inputChangeHandler} name="startTime">
                 {Object.keys(timeOptions).map(time => (
                   <option key={timeOptions[time]} value={timeOptions[time]}>
                     {time}
@@ -126,5 +100,20 @@ class JobForm extends Component {
     );
   }
 }
+
+const divStyle = {
+  marginLeft: '2%',
+  marginTop: '2%',
+  width: '30%',
+  minHeight: '30%',
+  border: '5px solid black',
+  marginBottom: '2%',
+  textAlign: 'center',
+  paddingBottom: '2%'
+};
+
+const errorStyle = {
+  color: 'red'
+};
 
 export default JobForm;
