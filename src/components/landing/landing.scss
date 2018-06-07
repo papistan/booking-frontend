@@ -165,10 +165,13 @@ $button-gradient: linear-gradient(
         margin-top: 5%;
         padding-right: 2%;
         p {
-            font-size: 3.5em;
+            font-size: 4.5em;
+        }
+        p:nth-child(2) {
+            font-size: 2em;
         }
         i {
-            font-size: 26em;
+            font-size: 35em;
         }
     }
     #calendar-button {

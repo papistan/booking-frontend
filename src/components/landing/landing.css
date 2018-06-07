@@ -149,10 +149,13 @@
     padding-right: 2%;
   }
   .landing-info p {
-    font-size: 3.5em;
+    font-size: 4.5em;
+  }
+  .landing-info p:nth-child(2) {
+    font-size: 2em;
   }
   .landing-info i {
-    font-size: 26em;
+    font-size: 35em;
   }
   #calendar-button {
     grid-column: 5/6;
