@@ -37,9 +37,9 @@ $base-color: white;
         color: white;
         -webkit-box-shadow: 5px 5px 25px 0 rgba(46, 61, 73, 0.2);
         box-shadow: 10px 10px 20px 3px rgba(46,61,73,0.5);
-    animation-name: book;
-    animation-duration: 3s;
-    animation-delay: -4s;
+        animation-name: book;
+        animation-duration: 3s;
+        animation-delay: -4s;
     }
     @keyframes book {
         0%   {background-color: #02b3e4;}
@@ -64,7 +64,6 @@ $base-color: white;
 .landing-info {
     display: flex;
     flex-direction: column;
-   
     text-align: center;
     grid-column: 1/6;
     grid-row: 4/5;
@@ -119,19 +118,45 @@ $base-color: white;
     z-index: 6;
 }
 
+
 // Mobile landscape screen sizes
 @media only screen and (min-width: 480px) {
-    .landing-image-container {
-        
-
-    }
-    .booking-container {
-    
-       
-    }
 }
 
 // Desktop screen size sizes
 @media only screen and (min-width: 768px) {
+    .landing-grid {
+        .landing-image-container {
+            margin-left: -90px;
+            grid-column: 1/4;
+            grid-row: 1/6;
+            clip-path: polygon(0 0, 85% 0%, 100% 100%, 0 100%);
+        }
 
+        .booking-container {
+            grid-column: 4/6;
+            grid-row: 1/6;
+        
+        }
+        #book-button {
+            grid-column: 3/5;
+            grid-row: 3/4;
+            min-height: 10vh;
+            min-width: 30vw;
+        }
+    }
+    .landing-info {
+        grid-column: 4/6;
+        grid-row: 1/5;
+        margin-top: 5%;
+        padding-right: 2%;
+        p {
+            font-size: 3em;
+        }
+    }
+    #calendar-button {
+        grid-column: 5/6;
+        grid-row: 5/6;
+        margin-top: 0%;
+    }
 }

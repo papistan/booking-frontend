@@ -125,3 +125,36 @@
   position: relative;
   z-index: 6;
 }
+
+@media only screen and (min-width: 768px) {
+  .landing-grid .landing-image-container {
+    margin-left: -90px;
+    grid-column: 1/4;
+    grid-row: 1/6;
+    clip-path: polygon(0 0, 85% 0%, 100% 100%, 0 100%);
+  }
+  .landing-grid .booking-container {
+    grid-column: 4/6;
+    grid-row: 1/6;
+  }
+  .landing-grid #book-button {
+    grid-column: 3/5;
+    grid-row: 3/4;
+    min-height: 10vh;
+    min-width: 30vw;
+  }
+  .landing-info {
+    grid-column: 4/6;
+    grid-row: 1/5;
+    margin-top: 5%;
+    padding-right: 2%;
+  }
+  .landing-info p {
+    font-size: 3em;
+  }
+  #calendar-button {
+    grid-column: 5/6;
+    grid-row: 5/6;
+    margin-top: 0%;
+  }
+}
