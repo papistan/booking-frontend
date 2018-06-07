@@ -27,7 +27,6 @@ $button-gradient: linear-gradient(
     }
     #book-button {
         z-index: 7;
-        font-size: 1em;
         background-color: $button-color;
         min-height: 10vh;
         max-height: 10vh;
@@ -37,7 +36,7 @@ $button-gradient: linear-gradient(
         margin: auto;
         border-radius: 15px;
         border: none;
-        font-size: 2em;
+        font-size: 2.7em;
         font-weight: 100;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         color: white;
