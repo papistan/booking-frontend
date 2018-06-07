@@ -9,7 +9,7 @@ const Landing = () => {
     <div>
       <div className="landing-grid">
         <div className="landing-image-container" />
-        <Link id="book-button" to="/truckList">
+        <Link id="book-button" to="/jobForm">
           <p>BOOK NOW</p>
         </Link>
         <div className="booking-container" />
