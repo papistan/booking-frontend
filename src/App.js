@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
-import Forms from './components/forms';
+import Landing from './components/landing/landing';
 import TruckList from './components/truckList';
 import './App.css';
 
@@ -9,15 +9,9 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <Link to="/">
-            <button>Back to Forms</button>
-          </Link>
-          <Link to="/truckList">
-            <button>Truck/Jobs List</button>
-          </Link>
           <Switch>
             <Route path="/truckList" component={TruckList} />
-            <Route path="/" component={Forms} />
+            <Route path="/" component={Landing} />
           </Switch>
         </div>
       </BrowserRouter>

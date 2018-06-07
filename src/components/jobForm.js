@@ -67,9 +67,11 @@ class JobForm extends Component {
               <br />
               <p>Move Date</p>{' '}
               <input
-                type="text"
+                type="date"
                 name="date"
                 placeholder="2017-11-28"
+                required
+                pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
                 onChange={this.inputChangeHandler}
                 value={this.state.formFields.date}
               />{' '}
