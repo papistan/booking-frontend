@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { timeOptions } from '../utils/helpers';
+import { timeOptions } from '../../utils/helpers';
 import axios from 'axios';
+import './rentalForm.css';
 
-class JobForm extends Component {
+class RentalForm extends Component {
   constructor() {
     super();
 
@@ -48,9 +49,9 @@ class JobForm extends Component {
       return <Redirect to="/truckList" />;
     }
     return (
-      <div>
-        <div style={divStyle}>
-          <p style={errorStyle}>{error}</p>
+      <div id="rental-form-grid">
+        <div id="rental-form">
+          <p className="error">{error}</p>
           <div>
             <h5>Create Job</h5>
           </div>
@@ -98,24 +99,10 @@ class JobForm extends Component {
             </form>
           </div>
         </div>
+        <div id="rental-form-image" />
       </div>
     );
   }
 }
 
-const divStyle = {
-  marginLeft: '2%',
-  marginTop: '2%',
-  width: '30%',
-  minHeight: '30%',
-  border: '5px solid black',
-  marginBottom: '2%',
-  textAlign: 'center',
-  paddingBottom: '2%'
-};
-
-const errorStyle = {
-  color: 'red'
-};
-
-export default JobForm;
+export default RentalForm;

@@ -8,7 +8,6 @@ const Truck = props => {
   let jobObjects = props;
 
   const listTrucksJobs = jobs => {
-    console.log(jobs);
     return jobs.map(job => (
       <li style={liStyle} key={job._id}>
         {' '}

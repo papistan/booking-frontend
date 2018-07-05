@@ -1,0 +1,43 @@
+#rental-form-grid {
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
+    grid-template-rows: 20vh 20vh 20vh 20vh 20vh;
+    height: 100vh;
+    width: 100vw;
+}
+
+#rental-form {
+    color: white;
+    grid-column: 2/5;
+        grid-row: 2/5;
+        z-index: 1;
+        position: relative;
+}
+
+#rental-form-image {
+    background-image: linear-gradient(
+            rgba(0, 255, 221, 0.45), 
+            rgba(0, 17, 255, 0.45)
+          ),
+          url('https://s3.amazonaws.com/the-drive-staging/message-editor%2F1505928433421-yamaha-e-bikes-urbanrush-01.jpg');
+        background-size: cover ;
+        margin-left: -90px;
+        grid-column: 1/6;
+        grid-row: 1/6;
+        z-index: -1;
+        position: relative;
+}
+
+.error {
+    color: red;
+}
+
+
+// Mobile landscape screen sizes
+@media only screen and (min-width: 480px) {
+}
+
+// Desktop screen size sizes
+@media only screen and (min-width: 768px) {
+
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import JobForm from '../jobForm';
+import JobForm from '../rentalForm/rentalForm';
 import TruckForm from '../truckForm';
 import { Link } from 'react-router-dom';
 import './landing.css';
@@ -9,7 +9,7 @@ const Landing = () => {
     <div>
       <div className="landing-grid">
         <div className="landing-image-container" />
-        <Link id="book-button" to="/jobForm">
+        <Link id="book-button" to="/rentalForm">
           <p>BOOK NOW</p>
         </Link>
         <div className="booking-container" />
