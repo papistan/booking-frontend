@@ -53,7 +53,7 @@ class RentalForm extends Component {
         <div id="rental-form">
           <p className="error">{error}</p>
           <div>
-            <h5>Create Job</h5>
+            <h5>Create a booking</h5>
           </div>
           <div>
             <form onSubmit={this.formHandler}>
@@ -66,7 +66,7 @@ class RentalForm extends Component {
                 value={this.state.formFields.name}
               />{' '}
               <br />
-              <p>Move Date</p>{' '}
+              <p>Rental Date</p>{' '}
               <input
                 type="date"
                 name="date"
@@ -95,7 +95,7 @@ class RentalForm extends Component {
               />{' '}
               <br />
               <br />
-              <input type="submit" value="Add job" />
+              <input type="submit" value="Book" />
             </form>
           </div>
         </div>
