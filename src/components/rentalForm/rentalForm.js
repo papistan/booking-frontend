@@ -46,7 +46,7 @@ class RentalForm extends Component {
   render() {
     const { redirect, error } = this.state;
     if (redirect) {
-      return <Redirect to="/truckList" />;
+      return <Redirect to="/bookingList" />;
     }
     return (
       <div id="rental-form-grid">

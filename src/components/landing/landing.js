@@ -18,7 +18,7 @@ const Landing = () => {
           <p>Book by hour, day or week</p>
           <i className="fa fa-bicycle" />
         </div>
-        <Link id="calendar-button" to="/truckList">
+        <Link id="calendar-button" to="/bookingList">
           <i className="fa fa-calendar cal" />
         </Link>
       </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import Landing from './components/landing/landing';
-import TruckList from './components/truckList';
+import BookingList from './components/bookingList/bookingList';
 import TruckForm from './components/truckForm';
 import RentalForm from './components/rentalForm/rentalForm';
 import './App.css';
@@ -12,7 +12,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Switch>
-            <Route path="/truckList" component={TruckList} />
+            <Route path="/bookingList" component={BookingList} />
             <Route path="/truckForm" component={TruckForm} />
             <Route path="/rentalForm" component={RentalForm} />
             <Route path="/" component={Landing} />

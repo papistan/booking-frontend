@@ -1,13 +1,13 @@
-export const mapJobsToTrucks = jobs => {
-  let trucksJobs = {};
-  jobs.data.forEach(job => {
-    if (trucksJobs[job.truck]) {
-      trucksJobs[job.truck].push(job);
+export const mapBookingsToBikes = bookings => {
+  let bikesBookings = {};
+  bookings.data.forEach(booking => {
+    if (bikesBookings[booking.truck]) {
+      bikesBookings[booking.truck].push(booking);
     } else {
-      trucksJobs[job.truck] = [job];
+      bikesBookings[booking.truck] = [booking];
     }
   });
-  return trucksJobs;
+  return bikesBookings;
 };
 
 export const mapTrucks = trucks => {
