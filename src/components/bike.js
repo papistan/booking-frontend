@@ -4,15 +4,18 @@ const liStyle = {
   listStyleType: 'none'
 };
 
-const Truck = props => {
+const Bike = props => {
   let jobObjects = props;
 
   const listTrucksJobs = jobs => {
     return jobs.map(job => (
       <li style={liStyle} key={job._id}>
         {' '}
-        {job.name}, {new Date(job.date).toDateString()}, starting at{' '}
-        {job.startTime}, {job.totalHours} hours{' '}
+        <h4>
+          {new Date(job.date).toDateString()} <i className="fa fa-clock-o" />{' '}
+          {job.startTime}
+        </h4>
+        {job.totalHours} hours <i className="fa fa-user" /> {job.name}
       </li>
     ));
   };
@@ -24,4 +27,4 @@ const Truck = props => {
   );
 };
 
-export default Truck;
+export default Bike;

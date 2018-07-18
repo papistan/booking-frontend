@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Truck from '../truck';
+import Bike from '../bike';
 import { mapBookingsToBikes, mapTrucks } from '../../utils/helpers';
 import axios from 'axios';
 import './bookingList.css';
@@ -18,7 +18,7 @@ class BookingList extends Component {
   displayEachBikesBookings = (mappedBookings, mappedBikes) => {
     return Object.keys(mappedBookings).map(bike_id => {
       return (
-        <Truck
+        <Bike
           key={bike_id}
           truckName={mappedBikes[bike_id]}
           jobObjects={mappedBookings[bike_id]}
@@ -26,7 +26,7 @@ class BookingList extends Component {
       );
     });
   };
-  componentWillMount() {
+  componentDidMount() {
     axios
       .get('https://fathomless-mountain-28837.herokuapp.com/api/jobs')
       .then(bookings => {
@@ -52,14 +52,16 @@ class BookingList extends Component {
     let { mappedBookings, mappedBikes } = this.state;
 
     return (
-      <div className="rental-form-container">
-        <Link to="/rentalForm">
-          <button className="new-booking-button">Create New Booking</button>
-        </Link>
-        <div className="bookings-list-container">
-          <h1>Bookings</h1>
-          {mappedBookings === 'undefined' && <h1> Loading</h1>}
-          {this.displayEachBikesBookings(mappedBookings, mappedBikes)}
+      <div className="background">
+        <div className="rental-form-container">
+          <div className="bookings-list-container">
+            <h1>Bookings</h1>
+            {mappedBookings === 'undefined' && <h1> Loading</h1>}
+            {this.displayEachBikesBookings(mappedBookings, mappedBikes)}
+          </div>
+          <Link to="/rentalForm">
+            <p>Create New Booking</p>
+          </Link>
         </div>
       </div>
     );

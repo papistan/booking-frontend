@@ -18,7 +18,6 @@ class RentalForm extends Component {
   inputChangeHandler = e => {
     let formFields = { ...this.state.formFields };
     formFields[e.target.name] = e.target.value;
-    console.log(formFields);
     this.setState({
       formFields
     });
